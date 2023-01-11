@@ -35,3 +35,18 @@ function showCollection(array) {
 }
 
 showCollection(collection);
+
+function findByArtist(artist) {
+  let array = [];
+  for (let record of collection) {
+    if (artist == record.artist) {
+      array.push(record);
+    }
+  }
+  return array;
+}
+
+console.log(findByArtist("Julia Jacklin"));
+console.log(findByArtist("Bon Jovi"));
+addToCollection("The Tree of Forgiveness", "John Prine", 2018);
+console.log(findByArtist("John Prine"));

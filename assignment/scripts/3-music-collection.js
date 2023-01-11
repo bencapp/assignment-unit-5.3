@@ -50,3 +50,20 @@ console.log(findByArtist("Julia Jacklin"));
 console.log(findByArtist("Bon Jovi"));
 addToCollection("The Tree of Forgiveness", "John Prine", 2018);
 console.log(findByArtist("John Prine"));
+
+//Stretch Goals Below
+
+console.log("<----Stretch Goals Below---->");
+
+function search(searchRecord) {
+  let returnArray = [];
+  for (let record of collection) {
+    if (
+      record.artist == searchRecord.artist &&
+      record.yearPublished == searchRecord.year
+    ) {
+      returnArray.push(record);
+    }
+  }
+  return collection;
+}

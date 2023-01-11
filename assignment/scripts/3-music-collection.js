@@ -24,3 +24,14 @@ console.log(addToCollection("Townes Van Zandt", "Townes Van Zandt", 1969));
 console.log(addToCollection("Bruised Orange", "John Prine", 1978));
 
 console.log(collection);
+
+function showCollection(array) {
+  console.log(`There are ${array.length} records in the collection:`);
+  for (let record of array) {
+    console.log(
+      `${record.title} by ${record.artist}, published in ${record.yearPublished}`
+    );
+  }
+}
+
+showCollection(collection);

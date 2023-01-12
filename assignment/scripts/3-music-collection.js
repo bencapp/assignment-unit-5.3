@@ -101,17 +101,35 @@ showCollection(collection);
 console.log("<----Stretch Goals Below---->");
 
 //NEED TO FIX SEARCH FUNCTION
-function search(searchRecord) {
+function search(searchKey) {
   let returnArray = [];
-  for (let record of collection) {
-    if (
-      record.artist == searchRecord.artist &&
-      record.yearPublished == searchRecord.year
-    ) {
-      returnArray.push(record);
+
+  for (let property in searchKey) {
+    // for each collection object, if there is no match, remove it from list
+    for (let record of collection) {
+      if (
+        searchKey[property] == record[property] &&
+        !returnArray.includes(record)
+      ) {
+        returnArray.push(record);
+      }
     }
   }
-  return collection;
+  return returnArray;
 }
 
-console.log(search());
+console.log(search({ artist: "John Prine", yearPublished: 2018 }));
+
+console.log(
+  search({
+    artist: "John Prine",
+    yearPublished: 2018,
+    tracks: [
+      "Knockin' on Your Screen Door: 2:19",
+      "I Have Met My Love Today: 1:50",
+      "Egg & Daughter Nite, Lincoln Nebraska, 1967 (Crazy Bone): 4:05",
+    ],
+  })
+);
+
+console.log(search({ artist: "Julia Jacklin", yearPublished: 1969 }));
